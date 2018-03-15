@@ -13,4 +13,8 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/sign_in</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>net.ellise.listeners.LifecycleListener</listener-class>
+    </listener>
 </web-app>
