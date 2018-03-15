@@ -3,5 +3,14 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-    <display-name>Archetype Created Web Application</display-name>
+    <display-name>Need</display-name>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>net.ellise.servlets.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/sign_in</url-pattern>
+    </servlet-mapping>
 </web-app>
