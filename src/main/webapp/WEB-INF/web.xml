@@ -11,7 +11,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
-        <url-pattern>/sign_in</url-pattern>
+        <url-pattern>/log_in</url-pattern>
     </servlet-mapping>
 
     <listener>
