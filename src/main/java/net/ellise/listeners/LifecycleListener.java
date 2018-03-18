@@ -1,6 +1,8 @@
 package net.ellise.listeners;
 
+import net.ellise.domain.Login;
 import net.ellise.domain.database.JDBCConstants;
+import net.ellise.domain.database.JDBCLogin;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 
 import javax.servlet.ServletContextEvent;
@@ -14,7 +16,8 @@ public class LifecycleListener implements ServletContextListener {
         System.out.println(String.format("Web context started %1$s", servletContextEvent.getServletContext().getServletContextName()));
         System.out.flush();
         try {
-            initialiseDatabse();
+            DataSource dataSource = initialiseDatabase();
+            servletContextEvent.getServletContext().setAttribute(Login.LOGIN_KEY, new JDBCLogin(dataSource));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -26,9 +29,9 @@ public class LifecycleListener implements ServletContextListener {
         System.out.flush();
     }
 
-    private void initialiseDatabse() throws SQLException {
+    private DataSource initialiseDatabase() throws SQLException {
         EmbeddedDataSource dataSource = new EmbeddedDataSource();
-        dataSource.setDatabaseName("need");
+        dataSource.setDatabaseName("memory:need");
         dataSource.setCreateDatabase("create");
         System.out.println("Creating in memory database");
         Connection connection = dataSource.getConnection();
@@ -72,5 +75,6 @@ public class LifecycleListener implements ServletContextListener {
         System.out.println("Closing connection...");
         connection.close();
         System.out.println("Connection closed...");
+        return dataSource;
     }
 }

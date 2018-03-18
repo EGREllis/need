@@ -7,11 +7,21 @@
 
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>net.ellise.servlets.Login</servlet-class>
+        <servlet-class>net.ellise.servlets.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Needs</servlet-name>
+        <jsp-file>/needs.jsp</jsp-file>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/log_in</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Needs</servlet-name>
+        <url-pattern>/needs</url-pattern>
     </servlet-mapping>
 
     <listener>
