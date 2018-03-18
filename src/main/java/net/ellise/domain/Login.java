@@ -4,4 +4,5 @@ import java.io.IOException;
 
 public interface Login {
     boolean isValidLogin(String username, String password) throws IOException;
+    boolean register(String username, String password) throws IOException;
 }

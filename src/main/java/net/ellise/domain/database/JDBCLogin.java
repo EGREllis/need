@@ -7,6 +7,12 @@ import java.io.IOException;
 public class JDBCLogin implements Login {
     @Override
     public boolean isValidLogin(String username, String password) throws IOException {
+
+        return false;
+    }
+
+    @Override
+    public boolean register(String username, String password) throws IOException {
         return false;
     }
 }
